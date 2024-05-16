@@ -1,0 +1,8 @@
+<div class="update">
+    <h2>modifie les textes</h2>
+    <div class="input">
+        <input [(ngModel)]="item.description" placeholder="Description">
+        <button (click)="updateItem()" class="btn btn4">Modifier</button>
+        <button (click)="cancel.emit()" class="btn btn5">Annueler</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="cruds">
+  <div class="crudAdd">
+    <h2>Ajouter votre texte</h2>
+    <div class="input">
+      <input [(ngModel)]="description" placeholder="Description">
+      <button (click)="addCrud()" class="btn">Add</button>
+    </div>
+  </div>
+
+  <div class="crudList">
+    <h2>Liste des textes saisies</h2>
+    <ul>
+      <li *ngFor="let item of items | async">
+        {{ item.description }}
+        <button (click)="editItem(item)" class="btn btn2">Modifier</button>
+        <button (click)="deleteItem(item.id)" class="btn btn3"><i class='bx bx-trash'></i></button>
+      </li>
+    </ul>
+  </div>
+
+  <app-edit-item *ngIf="editingItem" [item]="editingItem" (update)="updateItem($event)"
+  (cancel)="editingItem = null"></app-edit-item>
+</div>
+
