@@ -1,8 +1,33 @@
 <div class="update">
-    <h2>modifie les textes</h2>
-    <div class="input">
+    <!-- <h2>modifie les textes</h2> -->
+    <!-- <div class="input">
+        <input [(ngModel)]="item.date" placeholder="Date">
+        <input [(ngModel)]="item.name" placeholder="Name">
         <input [(ngModel)]="item.description" placeholder="Description">
-        <button (click)="updateItem()" class="btn btn4">Modifier</button>
-        <button (click)="cancel.emit()" class="btn btn5">Annueler</button>
-    </div>
+        <button (click)="updateItem()" class="btn modifier">Modifier</button>
+        <button (click)="cancel.emit()" class="btn supprimer">Annueler</button>
+    </div> -->
+    <h2>modifie les textes</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr>
+                <td><input [(ngModel)]="item.date" placeholder="Date"></td>
+                <td><input [(ngModel)]="item.name" placeholder="Name"></td>
+                <td><input [(ngModel)]="item.description" placeholder="Description"></td>
+                <td><button (click)="updateItem()" class="btn modifier">Modifier</button></td>
+                <td><button (click)="cancel.emit()" class="btn supprimer">Annueler</button></td>
+            </tr>
+            <!-- Ajouter d'autres lignes ici -->
+        </tbody>
+    </table>
 </div>
+

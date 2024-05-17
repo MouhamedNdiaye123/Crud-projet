@@ -13,13 +13,17 @@ import { EditItemComponent } from "../edit-item/edit-item.component";
     imports: [CommonModule, FormsModule, EditItemComponent]
 })
 export class AddCrudComponent {
+  date = new Date;
+  name = '';
   description = '';
 
   constructor(private itemService: ItemService) {}
 
   addCrud() {
-    if (this.description) {
-      this.itemService.addItem(this.description);
+    if (this.name && this.description) {
+      this.itemService.addItem(this.date, this.name, this.description);
+      this.date = new Date;
+      this.name = '';
       this.description = '';
     }
   }
@@ -31,7 +35,7 @@ export class AddCrudComponent {
   }
 
   updateItem(item: Item) {
-    this.itemService.updateItem(item.id, item.description);
+    this.itemService.updateItem(item.id, item.date, item.name, item.description);
     this.editingItem = null;
   }
 

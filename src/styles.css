@@ -11,12 +11,14 @@
     padding: 12px 25px;
     color: white;
     background-color: blue;
-    margin: 0 10px;
+    margin: 10px;
+    width: 100%;
 }
 input{
-    padding: 12px 8px;
+    padding: 10px 8px;
     background-color: rgb(244, 244, 244);
     width: 100%;
+    margin: 10px;
 }
 h2{
     text-transform: capitalize;
@@ -29,4 +31,106 @@ h2{
     justify-content: center;
     flex-direction: row;
     width: 100%;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 5px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.modifier {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button.supprimer {
+    background-color: #f44336;
+    color: white;
+}
+
+button.modifier:hover {
+    background-color: #45a049;
+}
+
+button.supprimer:hover {
+    background-color: #d32f2f;
+}
+
+@media screen and (max-width: 700px) {
+    .cruds {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        margin: auto;
+    }
+    .crudAdd {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        width: 100%;
+        margin: 10px;
+    }
+    .input{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 90%;
+    }
+    /* Media Queries pour la réactivité */
+    th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 10px;
+        display: block;
+        border-bottom: 2px solid #ddd;
+    }
+
+    td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    td:nth-of-type(1)::before { content: "Date"; }
+    td:nth-of-type(2)::before { content: "Name"; }
+    td:nth-of-type(3)::before { content: "Description"; }
+    td:nth-of-type(4)::before { content: "Modifier"; }
+    td:nth-of-type(5)::before { content: "Supprimer"; }
 }

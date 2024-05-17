@@ -13,18 +13,22 @@ export class ItemService {
     return this.itemsSubject.asObservable();
   }
 
-  addItem(description: string) {
+  addItem(date: Date, name: string, description: string) {
     const newItem: Item = {
       id: Date.now(),
+      date,
+      name,
       description
     };
     this.items.push(newItem);
     this.itemsSubject.next(this.items);
   }
 
-  updateItem(id: number, description: string) {
+  updateItem(id: number, date: Date, name: string, description: string) {
     const item = this.items.find(item => item.id === id);
     if (item) {
+      item.date = date;
+      item.name = name;
       item.description = description;
       this.itemsSubject.next(this.items);
     }
