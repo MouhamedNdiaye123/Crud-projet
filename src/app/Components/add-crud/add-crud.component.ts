@@ -30,15 +30,6 @@ export class AddCrudComponent {
   items = this.itemService.getItems();
   editingItem: Item | null = null;
 
-  editItem(item: Item) {
-    this.editingItem = { ...item };
-  }
-
-  updateItem(item: Item) {
-    this.itemService.updateItem(item.id, item.date, item.name, item.description);
-    this.editingItem = null;
-  }
-
   deleteItem(id: number) {
     this.itemService.deleteItem(id);
   }

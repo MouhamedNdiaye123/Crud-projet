@@ -24,16 +24,6 @@ export class ItemService {
     this.itemsSubject.next(this.items);
   }
 
-  updateItem(id: number, date: Date, name: string, description: string) {
-    const item = this.items.find(item => item.id === id);
-    if (item) {
-      item.date = date;
-      item.name = name;
-      item.description = description;
-      this.itemsSubject.next(this.items);
-    }
-  }
-
   deleteItem(id: number) {
     this.items = this.items.filter(item => item.id !== id);
     this.itemsSubject.next(this.items);

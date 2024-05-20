@@ -1,23 +1,22 @@
 <div class="cruds">
   <div class="crudAdd">
-    <h2>Ajouter votre texte</h2>
+    <h2>Ajouter une liste de tache</h2>
     <div class="input">
       <input [(ngModel)]="date" placeholder="Date" type="date">
       <input [(ngModel)]="name" placeholder="Name">
       <input [(ngModel)]="description" placeholder="Description">
-      <button (click)="addCrud()" class="btn">Add new crud</button>
+      <button (click)="addCrud()" class="btn">Ajouter</button>
     </div>
   </div>
 
   <div class="crudList">
-    <h2>Liste des textes saisies</h2>
+    <h2>Liste des taches saisies</h2>
     <table >
       <thead>
         <tr>
           <th>Date</th>
           <th>Name</th>
           <th>Description</th>
-          <th>Modifier</th>
           <th>Supprimer</th>
         </tr>
       </thead>
@@ -26,22 +25,13 @@
           <td>{{ item.date | date}}</td>
           <td>{{ item.name }}</td>
           <td>{{ item.description }}</td>
-          <td><button (click)="editItem(item)" class="btn modifier">Modifier</button></td>
           <td><button (click)="deleteItem(item.id)" class="btn supprimer"><i class='bx bx-trash'></i></button></td>
         </tr>
       </tbody>
     </table>
-    <!-- <div>
-      <div *ngFor="let item of items | async">
-        {{ item.name }}
-        {{ item.description }}
-        <button (click)="editItem(item)" class="btn btn2">Modifier</button>
-        <button (click)="deleteItem(item.id)" class="btn btn3"><i class='bx bx-trash'></i></button>
-      </div>
-    </div> -->
   </div>
 
-  <app-edit-item *ngIf="editingItem" [item]="editingItem" (update)="updateItem($event)"
+  <app-edit-item *ngIf="editingItem" [item]="editingItem"
   (cancel)="editingItem = null"></app-edit-item>
 </div>
 
